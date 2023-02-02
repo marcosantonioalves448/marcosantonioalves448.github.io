@@ -2,7 +2,7 @@ const myLinks = [
     ["Inicio", "/"],
     ["Currículo", "/curriculo.html"],
     ["GitHub", "https://github.com/marcosantonio-desenvolvedor"]
-    
+]
 class MyHeader extends HTMLElement{
     connectedCallback() {
         //createElement = cria uma elemento HTML baseado numa TAG especificada
