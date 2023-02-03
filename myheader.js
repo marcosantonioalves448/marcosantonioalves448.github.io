@@ -1,8 +1,10 @@
 const myLinks = [
     ["Inicio", "/"],
+    ["Teste", "/teste.html"],
     ["Currículo", "/curriculo.html"],
-    ["GitHub", "https://github.com/marcosantonio-desenvolvedor"]
-]
+    ["GitHub", "https://github.com/marcosantonioalves448"],
+    ]
+
 class MyHeader extends HTMLElement{
     connectedCallback() {
         //createElement = cria uma elemento HTML baseado numa TAG especificada
@@ -10,7 +12,7 @@ class MyHeader extends HTMLElement{
         const titleDiv = document.createElement("div");
         const pageTitle = document.createElement("h1");
 
-        pageTitle.textContent = "Conheça Marcos Antônio";
+        pageTitle.textContent = "Meu Site";
         titleDiv.appendChild(pageTitle);   
         header.appendChild(titleDiv);
         header.appendChild(navBar(myLinks));
@@ -29,6 +31,7 @@ function navBar(webpageList) {
     for(let i = 0; i < webpageList.length; i++){
         let li = document.createElement("li");
         let a = document.createElement("a");
+        li.setAttribute("class", "mynavbar");
         a.setAttribute("href", webpageList[i][1]);
         a.textContent = webpageList[i][0];
         li.appendChild(a);
@@ -40,4 +43,12 @@ function navBar(webpageList) {
     return nav;    
 }
 
+function addCss(){
+    let myCss = document.createElement("link");
+    myCss.setAttribute("rel", "stylesheet");
+    myCss.setAttribute("href", "/estilo.css");
+    document.head.appendChild(myCss);
+}
+
+addCss();
 customElements.define("my-header", MyHeader);
